@@ -1,0 +1,82 @@
+
+/** PANDUAN DEVELOPER **/
+
+TEKNOLOGI
+
+  Backend: 
+  - Framework: Laravel 8
+  - https://laravel.com
+  
+  Frontend: 
+  - Framework: Quasar Framework [ Vuejs, Vue-router, Vuex ]
+  - https://quasar.dev
+  
+  
+REQUIREMENTS
+
+  Apache / nginx Server dengan PHP >= 7.4.0
+  Nodejs 
+  npm / yarn
+  Quasar-cli
+
+
+
+# Development 
+
+ - Konfigurasi database lihat di panduan installasi
+ 
+# Install Package
+
+ ~ npm run start / yarn start
+
+# Migrasi dan seeding database ( jalankan Jika hanya ingin menggunakan fresh database )
+
+ ~ php artisan site:install atau php artisan migrate:fresh --seed
+
+# Run development server
+
+ ~ php artisan serve => menjalankan backend server running pada port 8000
+ ~ npm run serve => menjalankan frontend server running pada port 8080
+ 
+ 
+
+# Production
+
+ ~ npm run build / yarn build
+ 
+ 
+# Deploy
+
+ Upload Aplikasi ke hosting / server dan arahkan domain ke direktori public
+ Jika hosting tidak memungkinkan untuk itu, silahkan arahkan ke root folder dan buat file .htaccess kemudian paste code dibawah ini
+ 
+ 
+	# Start Code
+ 
+ 	<IfModule mod_rewrite.c>
+	 
+	RewriteEngine On
+	 
+	RewriteRule ^(.*)$ public/$1 [L]
+	 
+	</IfModule>
+
+	# End Code
+	
+	
+	
+# Note
+
+ Saat deploy aplikasi jangan ikut sertakan folder node_modules dan frontend/node_modules 
+ karena tidak terpakai saat production dan ukuranya sangat besar
+ 
+ Data file FRONTEND berada di direktori frontend
+
+ file - file komponen terdapat di direktori frontend/src/
+ 
+ 
+
+
+
+
+

@@ -1,0 +1,116 @@
+
+
+
+/** PANDUAN INSTALASI DAN KONFIGURASI **/
+
+
+1. Siapkan domain / subdomain untuk aplikasi
+
+2. Buat  database di hosting / server
+
+3. Buka folder Application dan edit file .env
+
+4. Import file "database/database.sql" database melalui phpmyadmin atau yg lainnya
+
+5. konfigurasi database di file.env sesuai dengan kredensial database anda
+	a. DB_DATABASE
+	b. DB_USERNAME
+	c. DB_PASSWORD
+
+6. Konfigurasi "APP_URL" dengan alamat domain anda. contoh: "https://domainanda.com"
+
+7. Upload semua file di dalam folder "Application" ke direktory hosting anda.
+
+8. Buka url alamat domain anda, jika dapat terbuka dengan baik, berarti konfigursi hosting sudah benar
+
+9. Selesai
+
+*NOTE
+ - Arahkan domain anda ke folder "public" pada aplikasi, jika tidak memungkinkan untuk itu, silahkan tambahkan file .htaccess pada root direktori dan paste kode berikut:
+ 
+ 	# StarT Redirect
+ 	
+	<IfModule mod_rewrite.c>
+
+	RewriteEngine On
+
+	RewriteRule ^(.*)$ public/$1 [L]
+
+	</IfModule>
+ 
+ 	#End Redirect
+
+
+berikut kredensial default anda, silahkan ganti dengan alamat email dan password anda via aplikasi frontend.
+
+email = admin@example.com
+password = password
+
+
+# Pengaturan PWA
+
+~ Buka folder Application/public kemudian edit file "manifest.json" 
+  a. name
+  b. short_name
+  c. description
+
+
+
+/** PENGATURAN API **/
+
+
+/** Rajaongkir **/
+
+ a. Daftar di "https://rajaongkir.com" untuk mendapatkan api token kredensial.
+ b. Input "token" melalui menu pengaturan aplikasi "Ekspedisi"
+ c. Pilih dan input gudang pengiriman
+ d. pilih kurir
+
+
+
+/** Payment Gateway Tripay **/
+
+- Daftar ke https://tripay.co.id untuk mendapatkan kredensial
+
+- Silahkan aktivasi akun untuk mode produksi
+
+- Pilih chanel pembayaran ( closed payment )
+
+- Di menu Merchant Detail pilih "izinkan Inkonsistensi Nilai" ke "YA"
+
+- Aktifkan dan input "Kode Merchant", "APIKey" dan "PrivateKey" melalui menu pengaturan aplikasi "Tripay Payment Gateway"
+
+-- Callback URL Tripay = "https://domainanda.com/api/tripay/callback"
+
+
+
+/** Telegram Notifikasi **/
+
+- Buat bot melalui "@botFather"
+
+- Simpan bot token
+
+- Cari bot "@userinfobot"
+
+- Simapn "ID" nya
+
+- Input "bot token" dan "ID" melalui menu pengaturan aplikasi "Telegram Notifikasi"
+
+
+/** SMTP EMAIL **/
+
+Edit file .env dan sesuaikan pengaturan dibawah dengan mail server anda
+
+  a. MAIL_DRIVER=smtp
+  b. MAIL_HOST=smtp.mailhostanda.com
+  c. MAIL_PORT=465
+  d. MAIL_USERNAME=email@example.com
+  e. MAIL_PASSWORD=
+  f. MAIL_ENCRYPTION=ssl
+  g. MAIL_FROM_ADDRESS=email@example.com
+
+
+	
+
+	
+
